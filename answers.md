@@ -27,6 +27,14 @@
 
 ### Question 5: Explain how putting this line `flash[:error] = @pokemon.errors.full_messages.to_sentence` shows error messages on your form.
 
+Whenever a page is rendered, `application.html.erb` is rendered. At the end of this file, `layouts/messages` gets rendered. When we look at this file, we see that we display each message in the flash hash. 
+
+The line we added puts the error message into the flash hash, so by the process explained above, we display the error message. 
+
 ### Give us feedback on the project and decal below!
 
+I feel like having more (optional) reading to go along with lectures would be great. While working through this project, I felt stuck quite frequently, and I had to read about a lot of basics and conventions from a book about Rails. 
+
 ### Extra credit: Link your Heroku deployed app
+
+https://powerful-citadel-71074.herokuapp.com/
