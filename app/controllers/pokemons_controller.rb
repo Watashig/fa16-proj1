@@ -17,6 +17,14 @@ class PokemonsController < ApplicationController
   	# redirect_to :back
   end
 
+  def heal
+    @pokemon = Pokemon.find(params[:id])
+    @pokemon.health += 10
+    @pokemon.save
+    redirect_to trainer_path(id: @pokemon.trainer)
+    # redirect_to :back
+  end
+
   def new
     @pokemon = Pokemon.new
   end

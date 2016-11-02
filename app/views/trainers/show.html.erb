@@ -13,14 +13,24 @@
     <th>Name</th>
     <th>Level</th>
     <th>Health</th>
-    <th>Attack!</th>
+    <% if current_trainer != @trainer %>
+      <th>Attack!</th>
+    <% end %>
+    <% if current_trainer == @trainer %>
+      <th>Heal!</th>
+    <% end %>
   </tr>
     <% @pokemons.each do |p| %>
       <tr>
         <td><%= p.name %></td>
         <td><%= p.level %></td>
         <td><%= p.health %></td>
-        <td><%= button_to "Damage!", pokemons_damage_path(id: p), :class => "button medium", :method => :patch %></td>
+        <% if current_trainer != @trainer %>
+          <td><%= button_to "Damage!", pokemons_damage_path(id: p), :class => "button medium", :method => :patch %></td>
+        <% end %>
+        <% if current_trainer == @trainer %>
+          <td><%= button_to "Heal!", pokemons_heal_path(id: p), :class => "button medium", :method => :patch %></td>
+        <% end %>
       </tr> 
     <% end %>
   </tbody>

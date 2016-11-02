@@ -2,10 +2,11 @@
 #
 #                      Prefix Verb   URI Pattern                       Controller#Action
 #                        root GET    /                                 home#index
-#             pokemon_capture PATCH  /pokemon/capture(.:format)        pokemons#capture
-#              pokemon_damage PATCH  /pokemon/damage(.:format)         pokemons#damage
-#                 pokemon_new GET    /pokemon/new(.:format)            pokemons#new
-#              pokemon_create POST   /pokemon/create(.:format)         pokemons#create
+#            pokemons_capture PATCH  /pokemons/capture(.:format)       pokemons#capture
+#             pokemons_damage PATCH  /pokemons/damage(.:format)        pokemons#damage
+#                pokemons_new GET    /pokemons/new(.:format)           pokemons#new
+#             pokemons_create POST   /pokemons/create(.:format)        pokemons#create
+#               pokemons_heal PATCH  /pokemons/heal(.:format)          pokemons#heal
 #         new_trainer_session GET    /trainers/sign_in(.:format)       devise/sessions#new
 #             trainer_session POST   /trainers/sign_in(.:format)       devise/sessions#create
 #     destroy_trainer_session DELETE /trainers/sign_out(.:format)      devise/sessions#destroy
@@ -37,6 +38,7 @@ Rails.application.routes.draw do
   patch 'pokemons/damage', to: 'pokemons#damage'
   get 'pokemons/new', to: 'pokemons#new'
   post 'pokemons/create', to: 'pokemons#create'
+  patch 'pokemons/heal', to: 'pokemons#heal'
   devise_for :trainers
   resources :trainers
 end
